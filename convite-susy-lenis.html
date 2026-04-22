@@ -1,0 +1,1650 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <title>🎉 60 Anos — Susy Lenis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Audiowide&family=Exo+2:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <style>
+      /* ═══════════════════════════════════════════════
+   ROOT VARIABLES
+═══════════════════════════════════════════════ */
+      :root {
+        --bg: #04000e;
+        --bg2: #0a0120;
+        --bg3: #0e0028;
+        --pink: #ff006e;
+        --blue: #00d4ff;
+        --purple: #b44fff;
+        --gold: #ffd700;
+        --orange: #ff7b00;
+        --fire: #ff2200;
+        --white: #ffffff;
+        --soft: #f0e6ff;
+      }
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bg);
+        color: var(--white);
+        font-family: "Exo 2", sans-serif;
+        overflow-x: hidden;
+        cursor: default;
+      }
+
+      /* ═══════════════════════════════════════════════
+   CANVAS + FLOATING BUTTONS
+═══════════════════════════════════════════════ */
+      #stars-canvas {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .fab {
+        position: fixed;
+        z-index: 1000;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        border: 2px solid var(--pink);
+        background: rgba(4, 0, 14, 0.85);
+        color: var(--pink);
+        font-size: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(12px);
+        transition: all 0.3s;
+        box-shadow: 0 0 16px var(--pink);
+        text-decoration: none;
+      }
+      .fab:hover {
+        transform: scale(1.12);
+        box-shadow: 0 0 30px var(--pink);
+      }
+      #musicBtn {
+        bottom: 88px;
+        right: 20px;
+      }
+      #rsvpFab {
+        bottom: 24px;
+        right: 20px;
+        background: rgba(37, 211, 102, 0.15);
+        border-color: #25d366;
+        color: #25d366;
+        box-shadow: 0 0 16px #25d366;
+        font-size: 22px;
+      }
+      #rsvpFab:hover {
+        box-shadow: 0 0 30px #25d366;
+      }
+
+      #musicBtn.party {
+        border-color: var(--blue);
+        color: var(--blue);
+        box-shadow: 0 0 16px var(--blue);
+        animation: btn-pulse 1s ease-in-out infinite;
+      }
+      @keyframes btn-pulse {
+        0%,
+        100% {
+          box-shadow: 0 0 16px var(--blue);
+        }
+        50% {
+          box-shadow:
+            0 0 40px var(--blue),
+            0 0 80px rgba(0, 212, 255, 0.3);
+        }
+      }
+
+      /* ═══════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════ */
+      #hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 32px 20px 80px;
+        overflow: hidden;
+        text-align: center;
+        z-index: 1;
+      }
+
+      .hero-glow {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse 90% 60% at 50% 0%,
+            rgba(180, 79, 255, 0.35) 0%,
+            transparent 55%
+          ),
+          radial-gradient(
+            ellipse 55% 40% at 15% 85%,
+            rgba(255, 0, 110, 0.25) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse 55% 40% at 85% 85%,
+            rgba(0, 212, 255, 0.25) 0%,
+            transparent 50%
+          );
+        pointer-events: none;
+      }
+
+      /* ── Disco Ball ── */
+      .disco-wrap {
+        position: relative;
+        margin-bottom: 24px;
+        z-index: 2;
+        animation: float 3.5s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-12px);
+        }
+      }
+
+      .disco-string {
+        width: 2px;
+        height: 48px;
+        background: linear-gradient(
+          to bottom,
+          transparent,
+          rgba(255, 255, 255, 0.35)
+        );
+        margin: 0 auto;
+      }
+      .disco-ball {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        position: relative;
+        overflow: hidden;
+        background: radial-gradient(
+          circle at 33% 28%,
+          #fff 0%,
+          #ccc 8%,
+          #888 25%,
+          #555 55%,
+          #1a1a1a 100%
+        );
+        box-shadow:
+          0 0 0 3px rgba(255, 255, 255, 0.06),
+          0 0 40px rgba(255, 255, 255, 0.2),
+          0 0 80px rgba(180, 79, 255, 0.35),
+          0 0 120px rgba(0, 212, 255, 0.25);
+      }
+      .disco-ball::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background:
+          repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 9px,
+            rgba(0, 0, 0, 0.45) 9px,
+            rgba(0, 0, 0, 0.45) 10px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 9px,
+            rgba(0, 0, 0, 0.45) 9px,
+            rgba(0, 0, 0, 0.45) 10px
+          );
+        animation: disco-spin 6s linear infinite;
+      }
+      .disco-ball::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 30% 25%,
+          rgba(255, 255, 255, 0.5) 0%,
+          transparent 35%
+        );
+      }
+      @keyframes disco-spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* ── Hero Text ── */
+      .hero-pre {
+        font-family: "Audiowide", monospace;
+        font-size: clamp(0.55rem, 2vw, 0.75rem);
+        letter-spacing: 0.45em;
+        color: var(--blue);
+        text-shadow: 0 0 12px var(--blue);
+        margin-bottom: 14px;
+        opacity: 0;
+        animation: up 0.9s ease forwards 0.2s;
+      }
+      .hero-name {
+        font-family: "Bungee Shade", cursive;
+        font-size: clamp(3.5rem, 13vw, 9rem);
+        line-height: 0.88;
+        letter-spacing: 0.02em;
+        background: linear-gradient(
+          135deg,
+          var(--pink) 0%,
+          var(--purple) 50%,
+          var(--blue) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        filter: drop-shadow(0 0 24px rgba(255, 0, 110, 0.55));
+        opacity: 0;
+        animation: up 1s ease forwards 0.45s;
+      }
+      .hero-sixty {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        gap: 8px;
+        margin: 10px 0 24px;
+        opacity: 0;
+        animation: up 1s ease forwards 0.75s;
+      }
+      .sixty-num {
+        font-family: "Bungee", cursive;
+        font-size: clamp(5rem, 20vw, 12rem);
+        line-height: 1;
+        color: var(--gold);
+        text-shadow:
+          0 0 24px rgba(255, 215, 0, 0.85),
+          0 0 60px rgba(255, 215, 0, 0.4);
+      }
+      .sixty-label {
+        font-family: "Bungee", cursive;
+        font-size: clamp(1.4rem, 6vw, 3.5rem);
+        color: var(--white);
+        text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+        letter-spacing: 0.08em;
+      }
+      .hero-pill {
+        display: inline-block;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 0, 110, 0.18),
+          rgba(0, 212, 255, 0.18)
+        );
+        border: 1px solid rgba(255, 0, 110, 0.45);
+        border-radius: 100px;
+        padding: 8px 28px;
+        font-family: "Audiowide", monospace;
+        font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+        color: var(--white);
+        backdrop-filter: blur(12px);
+        margin-bottom: 36px;
+        opacity: 0;
+        animation: up 1s ease forwards 1.05s;
+      }
+
+      /* ── Countdown ── */
+      .cd-wrap {
+        opacity: 0;
+        animation: up 1s ease forwards 1.35s;
+      }
+      .cd-label {
+        font-family: "Audiowide", monospace;
+        font-size: clamp(0.5rem, 1.8vw, 0.65rem);
+        letter-spacing: 0.35em;
+        color: rgba(255, 255, 255, 0.45);
+        margin-bottom: 14px;
+      }
+      .cd-grid {
+        display: flex;
+        gap: clamp(8px, 2vw, 16px);
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .cd-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .cd-num {
+        font-family: "Bungee", cursive;
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        color: var(--white);
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        padding: 8px 10px;
+        min-width: 64px;
+        text-align: center;
+        line-height: 1;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.15s;
+      }
+      .cd-num::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+      }
+      .cd-unit {
+        font-family: "Audiowide", monospace;
+        font-size: clamp(0.45rem, 1.5vw, 0.55rem);
+        letter-spacing: 0.2em;
+        color: var(--pink);
+        text-shadow: 0 0 8px var(--pink);
+        margin-top: 6px;
+      }
+      .cd-num.flip {
+        animation: flip 0.3s ease;
+      }
+      @keyframes flip {
+        0% {
+          transform: scaleY(1);
+        }
+        50% {
+          transform: scaleY(0);
+        }
+        100% {
+          transform: scaleY(1);
+        }
+      }
+
+      .scroll-cue {
+        position: absolute;
+        bottom: 28px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        opacity: 0;
+        animation: fadein 1s ease forwards 2.2s;
+      }
+      .scroll-cue span {
+        font-family: "Audiowide", monospace;
+        font-size: 0.55rem;
+        letter-spacing: 0.35em;
+        color: rgba(255, 255, 255, 0.35);
+      }
+      .scroll-arrow {
+        width: 22px;
+        height: 22px;
+        border-right: 2px solid rgba(255, 255, 255, 0.35);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.35);
+        transform: rotate(45deg);
+        animation: bounce 1.8s ease-in-out infinite;
+      }
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: rotate(45deg) translateY(0);
+        }
+        50% {
+          transform: rotate(45deg) translateY(5px);
+        }
+      }
+
+      /* ═══════════════════════════════════════════════
+   SECTION BASE
+═══════════════════════════════════════════════ */
+      section {
+        position: relative;
+        z-index: 1;
+      }
+      .inner {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 80px 24px;
+      }
+      .stitle {
+        font-family: "Bungee", cursive;
+        font-size: clamp(1.5rem, 5vw, 2.4rem);
+        text-align: center;
+        margin-bottom: 48px;
+      }
+      .stitle::before,
+      .stitle::after {
+        content: " ✦ ";
+        font-size: 0.7em;
+        opacity: 0.6;
+      }
+      .stitle.gold {
+        color: var(--gold);
+        text-shadow:
+          0 0 20px rgba(255, 215, 0, 0.5),
+          0 0 50px rgba(255, 215, 0, 0.25);
+      }
+      .stitle.pink {
+        color: var(--pink);
+        text-shadow:
+          0 0 20px rgba(255, 0, 110, 0.5),
+          0 0 50px rgba(255, 0, 110, 0.25);
+      }
+      .stitle.blue {
+        color: var(--blue);
+        text-shadow:
+          0 0 20px rgba(0, 212, 255, 0.5),
+          0 0 50px rgba(0, 212, 255, 0.25);
+      }
+      .stitle.purple {
+        color: var(--purple);
+        text-shadow:
+          0 0 20px rgba(180, 79, 255, 0.5),
+          0 0 50px rgba(180, 79, 255, 0.25);
+      }
+
+      /* ── Reveal on scroll ── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(36px);
+        transition:
+          opacity 0.75s ease,
+          transform 0.75s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal.d1 {
+        transition-delay: 0.1s;
+      }
+      .reveal.d2 {
+        transition-delay: 0.2s;
+      }
+      .reveal.d3 {
+        transition-delay: 0.3s;
+      }
+
+      /* Keyframes used above */
+      @keyframes up {
+        from {
+          opacity: 0;
+          transform: translateY(28px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadein {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* ═══════════════════════════════════════════════
+   CONVITE
+═══════════════════════════════════════════════ */
+      #convite {
+        background: linear-gradient(180deg, var(--bg) 0%, #100022 100%);
+      }
+
+      .convite-layout {
+        display: flex;
+        align-items: center;
+        gap: 48px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      /* ── Vinyl record ── */
+      .vinyl-wrap {
+        position: relative;
+        flex-shrink: 0;
+        width: 190px;
+        height: 190px;
+      }
+      .vinyl {
+        width: 190px;
+        height: 190px;
+        border-radius: 50%;
+        animation: spin-slow 10s linear infinite;
+        background: radial-gradient(
+          circle at 50%,
+          #c0392b 0%,
+          #7b241c 14%,
+          #111 15%,
+          #1c1c1c 16%,
+          #111 22%,
+          #1c1c1c 23%,
+          #111 31%,
+          #1c1c1c 32%,
+          #111 40%,
+          #1c1c1c 41%,
+          #111 50%,
+          #1c1c1c 51%,
+          #0d0d0d 100%
+        );
+        box-shadow:
+          0 0 40px rgba(180, 79, 255, 0.3),
+          0 16px 48px rgba(0, 0, 0, 0.6);
+        position: relative;
+      }
+      .vinyl::before {
+        content: "♪";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #e74c3c 0%, #7b241c 65%);
+        box-shadow: 0 0 16px rgba(231, 76, 60, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        line-height: 54px;
+        text-align: center;
+        z-index: 1;
+      }
+      .vinyl-glow {
+        position: absolute;
+        inset: -24px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(180, 79, 255, 0.2) 0%,
+          transparent 65%
+        );
+        animation: glow-pulse 2.5s ease-in-out infinite;
+      }
+      @keyframes glow-pulse {
+        0%,
+        100% {
+          opacity: 0.5;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+      @keyframes spin-slow {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .convite-text {
+        flex: 1;
+        min-width: 240px;
+        text-align: center;
+      }
+      .convite-text h2 {
+        font-family: "Bungee", cursive;
+        font-size: clamp(1.7rem, 5vw, 2.8rem);
+        background: linear-gradient(135deg, var(--gold), var(--orange));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 18px;
+      }
+      .convite-text p {
+        font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+        line-height: 1.85;
+        color: rgba(240, 230, 255, 0.88);
+      }
+      .hl {
+        color: var(--pink);
+        font-weight: 700;
+        text-shadow: 0 0 12px rgba(255, 0, 110, 0.4);
+      }
+      .hl2 {
+        color: var(--gold);
+        font-weight: 700;
+      }
+      .hl3 {
+        color: var(--orange);
+        font-weight: 700;
+      }
+
+      /* ═══════════════════════════════════════════════
+   DETALHES
+═══════════════════════════════════════════════ */
+      #detalhes {
+        background: linear-gradient(180deg, #100022 0%, #0a001a 100%);
+      }
+
+      .det-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 20px;
+      }
+      .det-card {
+        background: rgba(255, 255, 255, 0.025);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 20px;
+        padding: 32px 22px;
+        text-align: center;
+        backdrop-filter: blur(16px);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+      .det-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--c-accent, var(--pink)),
+          transparent
+        );
+      }
+      .det-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+        border-color: rgba(255, 255, 255, 0.12);
+      }
+      .det-card .icon {
+        font-size: 2.5rem;
+        display: block;
+        margin-bottom: 14px;
+      }
+      .det-card .label {
+        font-family: "Audiowide", monospace;
+        font-size: 0.6rem;
+        letter-spacing: 0.3em;
+        color: rgba(255, 255, 255, 0.38);
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      .det-card .val {
+        font-family: "Bungee", cursive;
+        font-size: 1.25rem;
+        margin-bottom: 6px;
+      }
+      .det-card .sub {
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.58);
+        line-height: 1.55;
+      }
+
+      /* ═══════════════════════════════════════════════
+   PROGRAMA
+═══════════════════════════════════════════════ */
+      #programa {
+        background: linear-gradient(180deg, #0a001a 0%, #0c0412 100%);
+      }
+
+      .prog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 24px;
+      }
+      .prog-card {
+        border-radius: 20px;
+        padding: 32px 22px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+      .prog-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 20px;
+        background: radial-gradient(
+          ellipse at 50% 0%,
+          rgba(255, 255, 255, 0.05) 0%,
+          transparent 60%
+        );
+        pointer-events: none;
+      }
+      .prog-card:hover {
+        transform: translateY(-7px) scale(1.02);
+      }
+
+      .prog-card.bday {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 215, 0, 0.1),
+          rgba(255, 123, 0, 0.06)
+        );
+        border: 1px solid rgba(255, 215, 0, 0.28);
+        box-shadow: 0 0 40px rgba(255, 215, 0, 0.08);
+      }
+      .prog-card.flash {
+        background: linear-gradient(
+          135deg,
+          rgba(180, 79, 255, 0.1),
+          rgba(0, 212, 255, 0.06)
+        );
+        border: 1px solid rgba(180, 79, 255, 0.28);
+        box-shadow: 0 0 40px rgba(180, 79, 255, 0.08);
+      }
+      .prog-card.bbq {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 34, 0, 0.1),
+          rgba(255, 123, 0, 0.06)
+        );
+        border: 1px solid rgba(255, 100, 0, 0.28);
+        box-shadow: 0 0 40px rgba(255, 34, 0, 0.08);
+      }
+
+      .prog-emoji {
+        font-size: 3.2rem;
+        display: block;
+        margin-bottom: 14px;
+      }
+      .bbq .prog-emoji {
+        animation: sway 1.8s ease-in-out infinite;
+      }
+      @keyframes sway {
+        0%,
+        100% {
+          transform: rotate(-6deg) scale(1);
+        }
+        50% {
+          transform: rotate(6deg) scale(1.06);
+        }
+      }
+
+      .prog-time {
+        font-family: "Audiowide", monospace;
+        font-size: clamp(0.58rem, 1.8vw, 0.7rem);
+        letter-spacing: 0.3em;
+        margin-bottom: 10px;
+      }
+      .bday .prog-time {
+        color: var(--gold);
+        text-shadow: 0 0 8px rgba(255, 215, 0, 0.55);
+      }
+      .flash .prog-time {
+        color: var(--purple);
+        text-shadow: 0 0 8px rgba(180, 79, 255, 0.55);
+      }
+      .bbq .prog-time {
+        color: var(--orange);
+        text-shadow: 0 0 8px rgba(255, 123, 0, 0.55);
+      }
+
+      .prog-title {
+        font-family: "Bungee", cursive;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+      }
+      .bday .prog-title {
+        color: var(--gold);
+      }
+      .flash .prog-title {
+        color: var(--purple);
+      }
+      .bbq .prog-title {
+        color: var(--orange);
+      }
+
+      .prog-desc {
+        font-size: clamp(0.82rem, 2.2vw, 0.9rem);
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.65;
+      }
+
+      /* ── Fire divider ── */
+      .fire-divider {
+        text-align: center;
+        font-size: 2rem;
+        padding: 0 0 20px;
+        letter-spacing: 8px;
+        position: relative;
+        z-index: 1;
+      }
+      .fire-divider span {
+        animation: sway 1.6s ease-in-out infinite;
+        display: inline-block;
+      }
+      .fire-divider span:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .fire-divider span:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+      .fire-divider span:nth-child(4) {
+        animation-delay: 0.1s;
+      }
+      .fire-divider span:nth-child(5) {
+        animation-delay: 0.3s;
+      }
+
+      /* ═══════════════════════════════════════════════
+   RSVP
+═══════════════════════════════════════════════ */
+      #rsvp {
+        background: linear-gradient(180deg, #0c0412 0%, #10001e 100%);
+      }
+      #rsvp .inner {
+        text-align: center;
+      }
+
+      .rsvp-sub {
+        font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+        color: rgba(255, 255, 255, 0.68);
+        margin-bottom: 40px;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.75;
+      }
+      .rsvp-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 18px 52px;
+        border-radius: 100px;
+        font-family: "Bungee", cursive;
+        font-size: clamp(0.95rem, 3vw, 1.1rem);
+        letter-spacing: 0.04em;
+        text-decoration: none;
+        color: var(--white);
+        background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+        border: 2px solid rgba(255, 255, 255, 0.18);
+        box-shadow:
+          0 0 30px rgba(37, 211, 102, 0.4),
+          0 12px 40px rgba(0, 0, 0, 0.35);
+        transition: all 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+      .rsvp-btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.12),
+          transparent
+        );
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .rsvp-btn:hover::before {
+        opacity: 1;
+      }
+      .rsvp-btn:hover {
+        transform: translateY(-4px) scale(1.03);
+        box-shadow:
+          0 0 50px rgba(37, 211, 102, 0.65),
+          0 24px 60px rgba(0, 0, 0, 0.45);
+      }
+      .rsvp-note {
+        margin-top: 18px;
+        font-size: 0.72rem;
+        color: rgba(255, 255, 255, 0.28);
+        font-style: italic;
+      }
+
+      /* ═══════════════════════════════════════════════
+   MAPA
+═══════════════════════════════════════════════ */
+      #mapa {
+        background: linear-gradient(180deg, #10001e 0%, #0a0018 100%);
+      }
+      #mapa .inner {
+        text-align: center;
+      }
+
+      .map-address {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 12px 22px;
+        margin-bottom: 28px;
+        font-size: clamp(0.75rem, 2vw, 0.88rem);
+        color: rgba(255, 255, 255, 0.78);
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+      }
+      .map-frame {
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+      }
+      .map-frame iframe {
+        width: 100%;
+        height: 380px;
+        display: block;
+        filter: hue-rotate(195deg) saturate(0.75) brightness(0.65);
+        border: 0;
+      }
+      .dir-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 22px;
+        padding: 12px 28px;
+        border-radius: 100px;
+        background: rgba(0, 212, 255, 0.08);
+        border: 1px solid rgba(0, 212, 255, 0.38);
+        color: var(--blue);
+        text-decoration: none;
+        font-family: "Audiowide", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-shadow: 0 0 8px var(--blue);
+        transition: all 0.3s;
+      }
+      .dir-btn:hover {
+        background: rgba(0, 212, 255, 0.18);
+        box-shadow: 0 0 24px rgba(0, 212, 255, 0.3);
+        transform: translateY(-2px);
+      }
+
+      /* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
+      footer {
+        background: var(--bg);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 48px 24px 100px;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+      .footer-name {
+        font-family: "Bungee", cursive;
+        font-size: clamp(1.3rem, 4vw, 1.8rem);
+        background: linear-gradient(135deg, var(--pink), var(--purple));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 10px;
+      }
+      footer p {
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.28);
+        line-height: 1.8;
+      }
+      .footer-icons {
+        font-size: 1.3rem;
+        letter-spacing: 6px;
+        margin: 12px 0;
+      }
+
+      /* ═══════════════════════════════════════════════
+   PARTY MODE overlay effect
+═══════════════════════════════════════════════ */
+      body.party-mode {
+        animation: party-bg 2s linear infinite alternate;
+      }
+      @keyframes party-bg {
+        0% {
+          --party: rgba(255, 0, 110, 0.02);
+        }
+        50% {
+          --party: rgba(180, 79, 255, 0.02);
+        }
+        100% {
+          --party: rgba(0, 212, 255, 0.02);
+        }
+      }
+      body.party-mode #hero .hero-glow {
+        animation: party-glow 1.5s ease-in-out infinite;
+      }
+      @keyframes party-glow {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 1.6;
+          filter: brightness(1.3);
+        }
+      }
+
+      /* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+      @media (max-width: 580px) {
+        .convite-layout {
+          flex-direction: column;
+        }
+        .cd-num {
+          min-width: 52px;
+          font-size: 1.75rem;
+          padding: 6px 8px;
+        }
+        .map-frame iframe {
+          height: 260px;
+        }
+        .det-grid {
+          grid-template-columns: 1fr;
+        }
+        .prog-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 380px) {
+        .sixty-num {
+          font-size: 4.5rem;
+        }
+        .hero-name {
+          font-size: 3.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <audio
+      id="bgMusic"
+      src="Dire Straits - Walk Of Life (Official Music Video) - DireStraitsVEVO (youtube).mp3"
+      autoplay
+      loop
+      preload="auto"
+      hidden
+    ></audio>
+
+    <!-- ════ BG CANVAS ════ -->
+    <canvas id="stars-canvas"></canvas>
+
+    <!-- ════ FLOATING ACTIONS ════ -->
+    <button
+      class="fab"
+      id="musicBtn"
+      title="Silenciar música"
+      aria-label="Silenciar música"
+    >🎵</button>
+    <a
+      class="fab"
+      id="rsvpFab"
+      href="https://wa.me/5567996134620?text=Ol%C3%A1!%20Confirmo%20minha%20presen%C3%A7a%20no%20anivers%C3%A1rio%20de%2060%20anos%20da%20Susy%20Lenis!%20%F0%9F%8E%89"
+      target="_blank"
+      rel="noopener"
+      title="Confirmar Presença"
+      >💬</a
+    >
+
+    <!-- ════════════════════════════
+     SECTION 1 — HERO
+════════════════════════════ -->
+    <section id="hero">
+      <div class="hero-glow"></div>
+
+      <div class="disco-wrap">
+        <div class="disco-string"></div>
+        <div class="disco-ball" id="discoBall"></div>
+      </div>
+
+      <div class="hero-pre">✦ CONVITE ESPECIAL ✦</div>
+
+      <h1 class="hero-name">SUSY<br />LENIS</h1>
+
+      <div class="hero-sixty">
+        <span class="sixty-num">60</span>
+        <span class="sixty-label">ANOS</span>
+      </div>
+
+      <div class="hero-pill">
+        📅 &nbsp;1 DE MAIO DE 2026 &nbsp;• &nbsp;11:30h
+      </div>
+
+      <div class="cd-wrap">
+        <div class="cd-label">⏳ &nbsp;CONTAGEM REGRESSIVA</div>
+        <div class="cd-grid">
+          <div class="cd-item">
+            <div class="cd-num" id="cdD">00</div>
+            <div class="cd-unit">DIAS</div>
+          </div>
+          <div class="cd-item">
+            <div class="cd-num" id="cdH">00</div>
+            <div class="cd-unit">HORAS</div>
+          </div>
+          <div class="cd-item">
+            <div class="cd-num" id="cdM">00</div>
+            <div class="cd-unit">MINUTOS</div>
+          </div>
+          <div class="cd-item">
+            <div class="cd-num" id="cdS">00</div>
+            <div class="cd-unit">SEGUNDOS</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-cue">
+        <span>ROLE PARA BAIXO</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════
+     SECTION 2 — CONVITE
+════════════════════════════ -->
+    <section id="convite">
+      <div class="inner">
+        <div class="convite-layout reveal">
+          <div class="vinyl-wrap">
+            <div class="vinyl"></div>
+            <div class="vinyl-glow"></div>
+          </div>
+
+          <div class="convite-text">
+            <h2>Você está convidado!</h2>
+            <p>
+              A vida é uma festa e nada melhor do que celebrá-la ao lado de quem
+              a gente ama! 🎉
+            </p>
+            <br />
+            <p>
+              <span class="hl">Susy Lenis</span> está completando
+              <span class="hl2">60 anos incríveis</span> e quer dividir esse
+              momento especial com você!
+            </p>
+            <br />
+            <p>
+              Prepare-se para uma tarde cheia de
+              <span class="hl3">sabor e brasa</span> 🔥, muito
+              <span class="hl">flashback</span> e muita dança! 💃🕺
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════
+     SECTION 3 — DETALHES
+════════════════════════════ -->
+    <section id="detalhes">
+      <div class="inner">
+        <h2 class="stitle gold reveal">Detalhes do Evento</h2>
+
+        <div class="det-grid">
+          <div class="det-card reveal" style="--c-accent: var(--gold)">
+            <span class="icon">📅</span>
+            <div class="label">Data</div>
+            <div class="val" style="color: var(--gold)">1º de Maio</div>
+            <div class="sub">Quinta-feira • Feriado Nacional<br />2026</div>
+          </div>
+
+          <div class="det-card reveal d1" style="--c-accent: var(--pink)">
+            <span class="icon">⏰</span>
+            <div class="label">Horário dos Parabéns</div>
+            <div class="val" style="color: var(--pink)">15h00</div>
+            <div class="sub">
+              Almoço com churrasco às 11h30<br />e flashback após os parabéns!
+            </div>
+          </div>
+
+          <div class="det-card reveal d2" style="--c-accent: var(--blue)">
+            <span class="icon">📍</span>
+            <div class="label">Local</div>
+            <div class="val" style="color: var(--blue); font-size: 1rem">
+              Espaço Lê Bistro
+            </div>
+            <div class="sub">
+              Rua Espanha, nº 50<br />Euro Garden — Dourados/MS
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════
+     SECTION 4 — PROGRAMA
+════════════════════════════ -->
+    <section id="programa">
+      <div class="inner">
+        <h2 class="stitle purple reveal">Programação</h2>
+
+        <div class="prog-grid">
+          <div class="prog-card bday reveal">
+            <span class="prog-emoji">🎂</span>
+            <div class="prog-time">ÀS 15H00</div>
+            <div class="prog-title">Parabéns!</div>
+            <p class="prog-desc">
+              Vamos cantar juntos e cortar o bolo para essa mulher incrível que
+              está completando 60 anos cheios de alegria e história!
+            </p>
+          </div>
+
+          <div class="prog-card flash reveal d1">
+            <span class="prog-emoji">🕺</span>
+            <div class="prog-time">APÓS AS 15H</div>
+            <div class="prog-title">Flashback!</div>
+            <p class="prog-desc">
+              70s, 80s e 90s — as melhores músicas para relembrar os clássicos
+              inesquecíveis! Venha dançar e reviver cada momento!
+            </p>
+          </div>
+
+          <div class="prog-card bbq reveal d2">
+            <span class="prog-emoji">🔥</span>
+            <div class="prog-time">A PARTIR DAS 11H30</div>
+            <div class="prog-title">Almoço com Churrasco!</div>
+            <p class="prog-desc">
+              O almoço começa às 11h30, com churrasco rolando desde o início da
+              celebração para reunir todo mundo em volta da mesa!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="fire-divider reveal">
+        <span>🔥</span><span>🔥</span><span>🔥</span><span>🔥</span
+        ><span>🔥</span>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════
+     SECTION 5 — RSVP
+════════════════════════════ -->
+    <!--<section id="rsvp">
+      <div class="inner">
+        <h2 class="stitle pink reveal">Confirme sua Presença</h2>
+        <p class="rsvp-sub reveal">
+          Sua presença vai fazer essa festa ainda mais especial! Confirme pelo
+          WhatsApp e nos vemos no dia <strong>1º de Maio</strong>! 🎉
+        </p>
+        <div class="reveal">
+          <a
+            href="https://wa.me/5567996134620?text=Ol%C3%A1!%20Confirmo%20minha%20presen%C3%A7a%20no%20anivers%C3%A1rio%20de%2060%20anos%20da%20Susy%20Lenis!%20%F0%9F%8E%89%20Dia%201%C2%BA%20de%20Maio%20%C3%A0s%2015h%20no%20Espa%C3%A7o%20L%C3%AA%20Bistro."
+            class="rsvp-btn"
+            target="_blank"
+            rel="noopener"
+          >
+            <span>💬</span>
+            Confirmar via WhatsApp
+          </a>
+        </div>
+        <p class="rsvp-note reveal">
+          * Atualize o número de WhatsApp no código antes de compartilhar o
+          convite
+        </p>
+      </div>
+    </section>-->
+
+    <!-- ════════════════════════════
+     SECTION 6 — MAPA
+════════════════════════════ -->
+    <section id="mapa">
+      <div class="inner">
+        <h2 class="stitle blue reveal">Como Chegar</h2>
+
+        <div class="reveal">
+          <div class="map-address">
+            📍 &nbsp; Rua Espanha, nº 50 — Euro Garden &nbsp;•&nbsp; Espaço Lê
+            Bistro, Dourados/MS
+          </div>
+        </div>
+
+        <div class="map-frame reveal">
+          <iframe
+            src="https://maps.google.com/maps?q=Rua+Espanha+50+Euro+Garden+Dourados+MS+Brasil&output=embed&z=16&hl=pt-BR"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          >
+          </iframe>
+        </div>
+
+        <div class="reveal">
+          <a
+            href="https://maps.google.com/maps?q=Rua+Espanha+50+Euro+Garden+Dourados+MS"
+            target="_blank"
+            rel="noopener"
+            class="dir-btn"
+          >
+            🗺️ &nbsp; Abrir no Google Maps
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════
+     FOOTER
+════════════════════════════ -->
+    <footer>
+      <div class="footer-name">SUSY LENIS ✦ 60 ANOS</div>
+      <div class="footer-icons">🎂 🎵 🔥 💃 🕺</div>
+      <p>
+        1º de Maio de 2026 &nbsp;•&nbsp; Espaço Lê Bistro &nbsp;•&nbsp; Euro
+        Garden, Dourados/MS
+      </p>
+      <p style="margin-top: 6px">
+        Flashback 70s • 80s • 90s &nbsp;|&nbsp; Churrasco &nbsp;|&nbsp; Muita
+        Celebração!
+      </p>
+    </footer>
+
+    <!-- ════════════════════════════
+     SCRIPTS
+════════════════════════════ -->
+    <script>
+      (function () {
+        "use strict";
+
+        // ─────────────────────────────────────────
+        // STARS + BEAMS CANVAS
+        // ─────────────────────────────────────────
+        const canvas = document.getElementById("stars-canvas");
+        const ctx = canvas.getContext("2d");
+        let W,
+          H,
+          stars = [],
+          beams = [],
+          lastT = 0;
+
+        function resize() {
+          W = canvas.width = window.innerWidth;
+          H = canvas.height = window.innerHeight;
+        }
+
+        function initStars(n = 220) {
+          stars = Array.from({ length: n }, () => ({
+            x: Math.random() * W,
+            y: Math.random() * H,
+            r: Math.random() * 1.4 + 0.3,
+            sp: Math.random() * 0.008 + 0.002,
+            ph: Math.random() * Math.PI * 2,
+            c: ["#ffffff", "#ff006e", "#00d4ff", "#b44fff", "#ffd700"][
+              Math.floor(Math.random() * 5)
+            ],
+          }));
+        }
+
+        function initBeams(n = 7) {
+          const cols = [
+            "rgba(255,0,110,",
+            "rgba(0,212,255,",
+            "rgba(180,79,255,",
+            "rgba(255,215,0,",
+          ];
+          beams = Array.from({ length: n }, () => ({
+            ox: 0.1 + Math.random() * 0.8,
+            oy: 0.05 + Math.random() * 0.15,
+            a: Math.random() * Math.PI * 2,
+            sp:
+              (Math.random() * 0.004 + 0.001) * (Math.random() > 0.5 ? 1 : -1),
+            c: cols[Math.floor(Math.random() * cols.length)],
+            al: 0.04 + Math.random() * 0.05,
+          }));
+        }
+
+        function drawBeams(t) {
+          ctx.save();
+          ctx.globalCompositeOperation = "lighter";
+          beams.forEach((b) => {
+            b.a += b.sp;
+            const sx = W * b.ox,
+              sy = H * b.oy;
+            const len = Math.max(W, H) * 1.5;
+            const ex = sx + Math.cos(b.a) * len;
+            const ey = sy + Math.sin(b.a) * len;
+            const g = ctx.createLinearGradient(sx, sy, ex, ey);
+            g.addColorStop(0, b.c + "0)");
+            g.addColorStop(0.25, b.c + b.al + ")");
+            g.addColorStop(1, b.c + "0)");
+            ctx.lineWidth = 70 + Math.sin(t * 0.0006) * 20;
+            ctx.strokeStyle = g;
+            ctx.beginPath();
+            ctx.moveTo(sx, sy);
+            ctx.lineTo(ex, ey);
+            ctx.stroke();
+          });
+          ctx.restore();
+        }
+
+        function drawStars(t) {
+          stars.forEach((s) => {
+            const alpha =
+              0.25 + 0.75 * Math.abs(Math.sin(t * s.sp * 60 + s.ph));
+            ctx.globalAlpha = alpha;
+            ctx.fillStyle = s.c;
+            ctx.beginPath();
+            ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+            ctx.fill();
+          });
+          ctx.globalAlpha = 1;
+        }
+
+        function tick(t) {
+          requestAnimationFrame(tick);
+          if (t - lastT < 33) return; // ~30fps
+          lastT = t;
+          ctx.clearRect(0, 0, W, H);
+          drawBeams(t);
+          drawStars(t);
+        }
+
+        resize();
+        initStars();
+        initBeams();
+        tick(0);
+        window.addEventListener("resize", () => {
+          resize();
+          initStars();
+        });
+
+        // ─────────────────────────────────────────
+        // DISCO BALL SPARKLE PARTICLES
+        // ─────────────────────────────────────────
+        const discoBall = document.getElementById("discoBall");
+        const colors = [
+          "#ff006e",
+          "#00d4ff",
+          "#b44fff",
+          "#ffd700",
+          "#ffffff",
+          "#ff7b00",
+        ];
+
+        function sparkle() {
+          if (!discoBall) return;
+          const rect = discoBall.getBoundingClientRect();
+          const cx = rect.left + rect.width / 2;
+          const cy = rect.top + rect.height / 2;
+          const angle = Math.random() * Math.PI * 2;
+          const dist = 70 + Math.random() * 60;
+          const el = document.createElement("div");
+          const size = 2 + Math.random() * 4;
+          el.style.cssText = `
+      position:fixed;
+      width:${size}px;height:${size}px;
+      border-radius:50%;
+      background:${colors[Math.floor(Math.random() * colors.length)]};
+      pointer-events:none;
+      z-index:10;
+      opacity:1;
+      transition:opacity 0.55s ease,transform 0.55s ease;
+      left:${cx + Math.cos(angle) * dist - size / 2}px;
+      top:${cy + Math.sin(angle) * dist - size / 2}px;
+      box-shadow: 0 0 6px currentColor;
+    `;
+          document.body.appendChild(el);
+          requestAnimationFrame(() => {
+            el.style.opacity = "0";
+            el.style.transform = `translate(${Math.cos(angle) * 20}px,${Math.sin(angle) * 20}px) scale(0)`;
+          });
+          setTimeout(() => el.remove(), 600);
+        }
+        setInterval(sparkle, 160);
+
+        // ─────────────────────────────────────────
+        // COUNTDOWN TIMER
+        // ─────────────────────────────────────────
+        const eventDate = new Date("2026-05-01T15:00:00");
+        const elD = document.getElementById("cdD");
+        const elH = document.getElementById("cdH");
+        const elM = document.getElementById("cdM");
+        const elS = document.getElementById("cdS");
+        const pad = (n) => String(n).padStart(2, "0");
+
+        let prevVals = { d: "", h: "", m: "", s: "" };
+
+        function flipEl(el, val) {
+          if (el.textContent === val) return;
+          el.classList.remove("flip");
+          void el.offsetWidth; // reflow
+          el.classList.add("flip");
+          el.textContent = val;
+        }
+
+        function countdown() {
+          const diff = eventDate - Date.now();
+          if (diff <= 0) {
+            [elD, elH, elM, elS].forEach((e) => {
+              e.textContent = "00";
+            });
+            return;
+          }
+          const d = Math.floor(diff / 86400000);
+          const h = Math.floor((diff % 86400000) / 3600000);
+          const m = Math.floor((diff % 3600000) / 60000);
+          const s = Math.floor((diff % 60000) / 1000);
+          flipEl(elD, pad(d));
+          flipEl(elH, pad(h));
+          flipEl(elM, pad(m));
+          flipEl(elS, pad(s));
+        }
+        countdown();
+        setInterval(countdown, 1000);
+
+        // ─────────────────────────────────────────
+        // SCROLL REVEAL
+        // ─────────────────────────────────────────
+        const reveals = document.querySelectorAll(".reveal");
+        const revObs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add("visible");
+                revObs.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
+        );
+        reveals.forEach((el) => revObs.observe(el));
+
+        // ─────────────────────────────────────────
+        // MUSIC / PARTY MODE BUTTON
+        // ─────────────────────────────────────────
+        const bgMusic = document.getElementById("bgMusic");
+        const musicBtn = document.getElementById("musicBtn");
+        const ambientVolume = 0.08;
+
+        function syncMusicButton() {
+          if (!musicBtn || !bgMusic) return;
+
+          const isMuted = bgMusic.muted;
+          const label = isMuted ? "Ativar música" : "Silenciar música";
+
+          musicBtn.classList.toggle("party", !isMuted);
+          musicBtn.textContent = isMuted ? "🔇" : "🎵";
+          musicBtn.title = label;
+          musicBtn.setAttribute("aria-label", label);
+        }
+
+        function tryPlayBgMusic() {
+          if (!bgMusic) return;
+
+          bgMusic.volume = ambientVolume;
+
+          if (bgMusic.muted) return;
+
+          bgMusic.play().catch(() => {});
+        }
+
+        if (bgMusic) {
+          bgMusic.volume = ambientVolume;
+        }
+
+        syncMusicButton();
+        tryPlayBgMusic();
+        ["pointerdown", "keydown", "touchstart"].forEach((eventName) => {
+          document.addEventListener(eventName, tryPlayBgMusic, { once: true });
+        });
+
+        musicBtn.addEventListener("click", () => {
+          if (!bgMusic) return;
+
+          bgMusic.muted = !bgMusic.muted;
+
+          if (!bgMusic.muted) {
+            tryPlayBgMusic();
+          }
+
+          syncMusicButton();
+        });
+
+        // ─────────────────────────────────────────
+        // PARALLAX SUBTLE on HERO
+        // ─────────────────────────────────────────
+        const discoWrap = document.querySelector(".disco-wrap");
+        window.addEventListener(
+          "scroll",
+          () => {
+            const sy = window.scrollY;
+            if (discoWrap)
+              discoWrap.style.transform = `translateY(${sy * 0.15}px)`;
+          },
+          { passive: true },
+        );
+      })();
+    </script>
+  </body>
+</html>
